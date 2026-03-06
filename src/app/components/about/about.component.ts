@@ -1,15 +1,15 @@
 import {
-   Component, OnInit, AfterViewInit, OnDestroy, inject, ElementRef, PLATFORM_ID
+  Component, OnInit, AfterViewInit, OnDestroy, inject, ElementRef, PLATFORM_ID
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
 import { ScrollService } from '../../services/scroll.service';
 
 @Component({
-   selector: 'app-about',
-   standalone: true,
-   imports: [CommonModule],
-   template: `
+  selector: 'app-about',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
     <section id="about" class="py-24 relative overflow-hidden">
       <!-- Background accent -->
       <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-radial from-primary-600/5 to-transparent pointer-events-none"></div>
@@ -95,6 +95,30 @@ import { ScrollService } from '../../services/scroll.service';
               }
             </div>
 
+            <!-- Resume CTA -->
+            <div class="flex items-center gap-3 pt-1">
+              <a
+                href="ajad resumee.pdf"
+                download="Ajad_Shukla_Resume.pdf"
+                class="btn-primary group flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Download Resume
+              </a>
+              <a
+                href="ajad resumee.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-outline group flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+                Preview
+              </a>
+            </div>
+
             <!-- Social links -->
             <div class="flex items-center gap-3 pt-2">
               @for (link of data.social; track link.label) {
@@ -115,17 +139,17 @@ import { ScrollService } from '../../services/scroll.service';
   `,
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
-   private platformId = inject(PLATFORM_ID);
-   private elRef = inject(ElementRef);
-   private scrollService = inject(ScrollService);
-   private svc = inject(PortfolioDataService);
-   data = this.svc.data;
+  private platformId = inject(PLATFORM_ID);
+  private elRef = inject(ElementRef);
+  private scrollService = inject(ScrollService);
+  private svc = inject(PortfolioDataService);
+  data = this.svc.data;
 
-   ngAfterViewInit(): void {
-      if (isPlatformBrowser(this.platformId)) {
-         const els = this.elRef.nativeElement.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-         this.scrollService.observe(els);
-      }
-   }
-   ngOnDestroy(): void { }
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const els = this.elRef.nativeElement.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      this.scrollService.observe(els);
+    }
+  }
+  ngOnDestroy(): void { }
 }

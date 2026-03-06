@@ -1,22 +1,22 @@
 import {
-   Component, OnInit, OnDestroy, AfterViewInit, inject, signal,
-   ElementRef, ViewChild, PLATFORM_ID
+  Component, OnInit, OnDestroy, AfterViewInit, inject, signal,
+  ElementRef, ViewChild, PLATFORM_ID
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
 import { ScrollService } from '../../services/scroll.service';
 
 interface Particle {
-   x: number; y: number;
-   vx: number; vy: number;
-   radius: number; opacity: number;
+  x: number; y: number;
+  vx: number; vy: number;
+  radius: number; opacity: number;
 }
 
 @Component({
-   selector: 'app-hero',
-   standalone: true,
-   imports: [CommonModule],
-   template: `
+  selector: 'app-hero',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
     <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
       <!-- Canvas particle background -->
       <canvas #particleCanvas class="absolute inset-0 w-full h-full"></canvas>
@@ -71,6 +71,30 @@ interface Particle {
                 </svg>
                 Contact Me
               </button>
+              <!-- Resume button group -->
+              <div class="flex items-center gap-1">
+                <a
+                  href="ajad resumee.pdf"
+                  download="Ajad_Shukla_Resume.pdf"
+                  class="btn-outline group flex items-center gap-2"
+                  title="Download Resume">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                  </svg>
+                  Resume
+                </a>
+                <a
+                  href="ajad resumee.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-9 h-9 rounded-lg glass flex items-center justify-center text-slate-400 hover:text-accent-400 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-0.5 border border-white/10"
+                  title="Preview Resume">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                  </svg>
+                </a>
+              </div>
             </div>
 
             <!-- Social -->
@@ -134,7 +158,7 @@ interface Particle {
       </div>
     </section>
   `,
-   styles: [`
+  styles: [`
     @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes scroll-dot {
       0%   { transform: translateY(0); opacity: 1; }
@@ -143,126 +167,126 @@ interface Particle {
   `],
 })
 export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
-   @ViewChild('particleCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('particleCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
 
-   private platformId = inject(PLATFORM_ID);
-   private scrollService = inject(ScrollService);
-   private svc = inject(PortfolioDataService);
+  private platformId = inject(PLATFORM_ID);
+  private scrollService = inject(ScrollService);
+  private svc = inject(PortfolioDataService);
 
-   data = this.svc.data;
-   typedText = signal('');
+  data = this.svc.data;
+  typedText = signal('');
 
-   private particles: Particle[] = [];
-   private animFrameId?: number;
-   private typingInterval?: ReturnType<typeof setInterval>;
-   private taglineIndex = 0;
-   private charIndex = 0;
-   private isDeleting = false;
+  private particles: Particle[] = [];
+  private animFrameId?: number;
+  private typingInterval?: ReturnType<typeof setInterval>;
+  private taglineIndex = 0;
+  private charIndex = 0;
+  private isDeleting = false;
 
-   ngOnInit(): void {
-      this.startTyping();
-   }
+  ngOnInit(): void {
+    this.startTyping();
+  }
 
-   ngAfterViewInit(): void {
-      if (isPlatformBrowser(this.platformId)) {
-         this.initParticles();
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.initParticles();
+    }
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.typingInterval);
+    if (this.animFrameId) cancelAnimationFrame(this.animFrameId);
+  }
+
+  scrollTo(section: string): void {
+    this.scrollService.scrollTo(section);
+  }
+
+  /* ── Typing effect ── */
+  private startTyping(): void {
+    const taglines = this.data.taglines;
+    const type = () => {
+      const current = taglines[this.taglineIndex];
+      if (this.isDeleting) {
+        this.charIndex--;
+        this.typedText.set(current.slice(0, this.charIndex));
+        if (this.charIndex === 0) {
+          this.isDeleting = false;
+          this.taglineIndex = (this.taglineIndex + 1) % taglines.length;
+        }
+      } else {
+        this.charIndex++;
+        this.typedText.set(current.slice(0, this.charIndex));
+        if (this.charIndex === current.length) {
+          this.isDeleting = true;
+          clearInterval(this.typingInterval);
+          setTimeout(() => {
+            this.typingInterval = setInterval(type, 60);
+          }, 1800);
+          return;
+        }
       }
-   }
+    };
+    this.typingInterval = setInterval(type, this.isDeleting ? 50 : 90);
+  }
 
-   ngOnDestroy(): void {
-      clearInterval(this.typingInterval);
-      if (this.animFrameId) cancelAnimationFrame(this.animFrameId);
-   }
+  /* ── Canvas particle system ── */
+  private initParticles(): void {
+    const canvas = this.canvasRef.nativeElement;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-   scrollTo(section: string): void {
-      this.scrollService.scrollTo(section);
-   }
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
 
-   /* ── Typing effect ── */
-   private startTyping(): void {
-      const taglines = this.data.taglines;
-      const type = () => {
-         const current = taglines[this.taglineIndex];
-         if (this.isDeleting) {
-            this.charIndex--;
-            this.typedText.set(current.slice(0, this.charIndex));
-            if (this.charIndex === 0) {
-               this.isDeleting = false;
-               this.taglineIndex = (this.taglineIndex + 1) % taglines.length;
-            }
-         } else {
-            this.charIndex++;
-            this.typedText.set(current.slice(0, this.charIndex));
-            if (this.charIndex === current.length) {
-               this.isDeleting = true;
-               clearInterval(this.typingInterval);
-               setTimeout(() => {
-                  this.typingInterval = setInterval(type, 60);
-               }, 1800);
-               return;
-            }
-         }
-      };
-      this.typingInterval = setInterval(type, this.isDeleting ? 50 : 90);
-   }
+    const COUNT = Math.min(80, Math.floor(window.innerWidth / 18));
+    this.particles = Array.from({ length: COUNT }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      radius: Math.random() * 1.5 + 0.5,
+      opacity: Math.random() * 0.5 + 0.15,
+    }));
 
-   /* ── Canvas particle system ── */
-   private initParticles(): void {
-      const canvas = this.canvasRef.nativeElement;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const resize = () => {
-         canvas.width = window.innerWidth;
-         canvas.height = window.innerHeight;
-      };
-      resize();
-      window.addEventListener('resize', resize);
+      for (const p of this.particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-      const COUNT = Math.min(80, Math.floor(window.innerWidth / 18));
-      this.particles = Array.from({ length: COUNT }, () => ({
-         x: Math.random() * canvas.width,
-         y: Math.random() * canvas.height,
-         vx: (Math.random() - 0.5) * 0.4,
-         vy: (Math.random() - 0.5) * 0.4,
-         radius: Math.random() * 1.5 + 0.5,
-         opacity: Math.random() * 0.5 + 0.15,
-      }));
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(99, 102, 241, ${p.opacity})`;
+        ctx.fill();
+      }
 
-      const draw = () => {
-         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-         for (const p of this.particles) {
-            p.x += p.vx;
-            p.y += p.vy;
-            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
+      // Draw connections
+      for (let i = 0; i < this.particles.length; i++) {
+        for (let j = i + 1; j < this.particles.length; j++) {
+          const dx = this.particles[i].x - this.particles[j].x;
+          const dy = this.particles[i].y - this.particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 130) {
             ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(99, 102, 241, ${p.opacity})`;
-            ctx.fill();
-         }
+            ctx.moveTo(this.particles[i].x, this.particles[i].y);
+            ctx.lineTo(this.particles[j].x, this.particles[j].y);
+            ctx.strokeStyle = `rgba(99, 102, 241, ${0.12 * (1 - dist / 130)})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
 
-         // Draw connections
-         for (let i = 0; i < this.particles.length; i++) {
-            for (let j = i + 1; j < this.particles.length; j++) {
-               const dx = this.particles[i].x - this.particles[j].x;
-               const dy = this.particles[i].y - this.particles[j].y;
-               const dist = Math.sqrt(dx * dx + dy * dy);
-               if (dist < 130) {
-                  ctx.beginPath();
-                  ctx.moveTo(this.particles[i].x, this.particles[i].y);
-                  ctx.lineTo(this.particles[j].x, this.particles[j].y);
-                  ctx.strokeStyle = `rgba(99, 102, 241, ${0.12 * (1 - dist / 130)})`;
-                  ctx.lineWidth = 0.8;
-                  ctx.stroke();
-               }
-            }
-         }
-
-         this.animFrameId = requestAnimationFrame(draw);
-      };
-      draw();
-   }
+      this.animFrameId = requestAnimationFrame(draw);
+    };
+    draw();
+  }
 }
