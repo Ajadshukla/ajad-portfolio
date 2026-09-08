@@ -47,7 +47,7 @@ import { ScrollService } from '../../services/scroll.service';
               <!-- Status badge -->
               <div class="absolute -bottom-5 -right-5 glass rounded-2xl p-4 border border-accent-500/30">
                 <p class="text-xs text-slate-500 mb-1">Currently</p>
-                <p class="text-sm font-semibold text-accent-400">@ HCL Training</p>
+                <p class="text-sm font-semibold text-accent-400">@ QuickMetrix</p>
               </div>
             </div>
           </div>

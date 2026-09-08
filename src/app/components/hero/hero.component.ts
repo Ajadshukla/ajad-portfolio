@@ -53,8 +53,8 @@ interface Particle {
 
             <!-- Bio -->
             <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
-              B.Tech CSE Student · Full-Stack Developer · Java OOP Master · AI Enthusiast.
-              Building scalable systems from Angular frontends to .NET & MERN backends.
+              Python Full Stack Developer Intern at QuickMetrix, building production APIs with
+              FastAPI &amp; Tornado. Angular and .NET full-stack in a former life.
             </p>
 
             <!-- CTAs -->
@@ -138,11 +138,11 @@ interface Particle {
               </div>
               <!-- Floating badges -->
               <div class="absolute -top-4 -right-4 glass rounded-xl px-3 py-2 text-xs font-semibold text-accent-400 border border-accent-500/30 animate-bounce">
-                ⚡ HCL Selected
+                ⚡ @ QuickMetrix
               </div>
               <div class="absolute -bottom-4 -left-4 glass rounded-xl px-3 py-2 text-xs font-semibold text-primary-300 border border-primary-500/30"
                    style="animation: bounce 2s ease infinite 1s;">
-                🚀 6+ Projects
+                🚀 7+ Projects
               </div>
             </div>
           </div>

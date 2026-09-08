@@ -7,6 +7,7 @@ export class PortfolioDataService {
       name: 'Ajad Shukla',
       taglines: [
          'Software Engineer',
+         'Python Full-Stack Developer',
          'Full-Stack Developer',
          'Java OOP Master',
          'AI/ML Enthusiast',
@@ -17,8 +18,10 @@ export class PortfolioDataService {
       bio: `B.Tech CSE student at United College of Engineering and Research, Prayagraj.
       Passionate about crafting robust, scalable web applications with a strong foundation in
       Data Structures & Algorithms, Object-Oriented Design, and modern cloud-ready architectures.`,
-      bioExtra: `Selected for on-campus placement by HCL, currently undergoing specialized training
-      in .NET Full-Stack development. I thrive at the intersection of clean code, elegant UI, and intelligent systems.`,
+      bioExtra: `Selected for on-campus placement by HCL, where I completed a 3-month specialized
+      training program in .NET Full-Stack development. Currently working as a Python Full Stack Developer
+      Intern at QuickMetrix, building production backend services with FastAPI and Tornado. I thrive at
+      the intersection of clean code, elegant UI, and intelligent systems.`,
       email: 'ajadshukla718@gmail.com',
       phone: '+91 9682860020',
       location: 'Prayagraj, Uttar Pradesh, India',
@@ -42,7 +45,7 @@ export class PortfolioDataService {
          },
       ],
       stats: [
-         { label: 'Projects Built', value: '6+' },
+         { label: 'Projects Built', value: '7+' },
          { label: 'Certifications', value: '4' },
          { label: 'CGPA', value: '7.1' },
          { label: 'Tech Stacks', value: '3+' },
@@ -52,6 +55,7 @@ export class PortfolioDataService {
             name: 'Languages',
             icon: '⌨️',
             items: [
+               { name: 'Python', level: 88 },
                { name: 'Java', level: 90 },
                { name: 'C#', level: 80 },
                { name: 'C', level: 75 },
@@ -73,6 +77,8 @@ export class PortfolioDataService {
             name: 'Backend & Frameworks',
             icon: '⚙️',
             items: [
+               { name: 'FastAPI', level: 85 },
+               { name: 'Tornado', level: 78 },
                { name: 'ASP.NET Core', level: 82 },
                { name: 'Node.js / Express', level: 80 },
                { name: 'RESTful APIs', level: 88 },
@@ -114,23 +120,25 @@ export class PortfolioDataService {
                'Scalable RESTful API architecture',
             ],
             featured: true,
-            githubUrl: 'https://github.com/Ajadshukla',
+            liveUrl: 'https://quickhire-jobportal.vercel.app/',
+            githubUrl: 'https://github.com/Ajadshukla/quickhire-jobportal',
          },
          {
-            title: 'Online Job Portal System',
-            subtitle: '.NET Full Stack — ASP.NET Core + Angular + MySQL',
-            period: 'Jan 2025 – Mar 2025',
+            title: 'Hospital Management System',
+            subtitle: 'ASP.NET Core + Angular 21 + MySQL + Docker',
+            period: '2026',
             description:
-               'Enterprise-grade full-stack job portal using ASP.NET Core Web API and Angular with modular component-based architecture, JWT security, and a comprehensive admin dashboard.',
-            techStack: ['ASP.NET Core', 'Angular', 'MySQL', 'Entity Framework Core', 'JWT'],
+               'Full-stack hospital management system with an ASP.NET Core Web API backend, MySQL database, and an Angular 21 frontend, containerized with Docker for consistent deployment.',
+            techStack: ['ASP.NET Core', 'C#', 'Angular 21', 'MySQL', 'Docker'],
             highlights: [
-               'DB-First approach with Entity Framework Core and MySQL',
-               'Multi-role JWT auth: Admin, Employer, Candidate',
-               'Job search with advanced filters and application tracking',
-               'Admin management dashboard for users and postings',
+               'ASP.NET Core Web API with Controller, DTO and Model layering',
+               'MySQL database integration via Entity Framework',
+               'Dockerized backend for consistent deployment',
+               'Angular 21 dashboard frontend deployed on Netlify',
             ],
             featured: true,
-            githubUrl: 'https://github.com/Ajadshukla',
+            liveUrl: 'https://hospital-management-si.netlify.app/dashboard',
+            githubUrl: 'https://github.com/Ajadshukla/hospitalmanagement',
          },
          {
             title: 'AI Virtual Assistant',
@@ -162,16 +170,69 @@ export class PortfolioDataService {
             ],
             githubUrl: 'https://github.com/Ajadshukla',
          },
+         {
+            title: 'Space Blaster X',
+            subtitle: 'Vanilla JavaScript + HTML5 Canvas',
+            period: '2025',
+            description:
+               'Browser-based arcade space shooter game built with vanilla JavaScript and HTML5 Canvas, with tilt controls for mobile and keyboard controls for desktop.',
+            techStack: ['JavaScript', 'HTML5 Canvas', 'CSS3'],
+            highlights: [
+               'Custom render loop built on requestAnimationFrame, no game engine',
+               'Mobile tilt controls via the Device Orientation API',
+               'Collision detection, particle effects, and a scrolling starfield background',
+            ],
+            liveUrl: 'https://ajad-space-shooter-game.netlify.app/',
+            githubUrl: 'https://github.com/Ajadshukla/space-shooter-game',
+         },
+         {
+            title: 'Live Code Editor',
+            subtitle: 'HTML, CSS & JavaScript Playground',
+            period: '2025',
+            description:
+               'In-browser code editor with a live preview for HTML, CSS, and JavaScript, including auto-run, localStorage persistence, and one-click HTML export.',
+            techStack: ['JavaScript', 'HTML', 'CSS'],
+            highlights: [
+               'Live iframe preview that updates as you type',
+               'Saves code to localStorage and restores it on reload',
+               'One-click export to a standalone downloadable HTML file',
+            ],
+            liveUrl: 'https://ajad-code-editor.netlify.app/',
+            githubUrl: 'https://github.com/Ajadshukla/live-code-editor',
+         },
+         {
+            title: 'Personal Portfolio Website',
+            subtitle: 'Angular + Tailwind CSS',
+            period: '2026',
+            description:
+               'This portfolio website, built with Angular and Tailwind CSS, showcasing my projects, skills, and experience with a fully responsive design.',
+            techStack: ['Angular', 'TypeScript', 'Tailwind CSS'],
+            highlights: [
+               'Server-side rendered for fast load times and SEO',
+               'Fully responsive across desktop and mobile',
+            ],
+            liveUrl: 'https://ajad.in',
+            githubUrl: 'https://github.com/Ajadshukla/ajad-portfolio',
+         },
       ],
       experience: [
          {
+            company: 'QuickMetrix',
+            role: 'Python Full Stack Developer Intern',
+            period: '2026 – Present',
+            description:
+               'Building and shipping production backend services in Python — designing REST APIs with FastAPI, working with Tornado for asynchronous request handling, and integrating everything with the front end.',
+            tags: ['Python', 'FastAPI', 'Tornado', 'REST APIs', 'MySQL'],
+            isCurrent: true,
+         },
+         {
             company: 'HCL Technologies',
             role: 'Campus Placement Trainee — .NET Full Stack',
-            period: '2025 – Present',
+            period: '2025 (3 Months)',
             description:
-               'Selected through on-campus recruitment at United College of Engineering and Research, Prayagraj. Undergoing intensive specialized training in .NET Full-Stack development (ASP.NET Core, Angular, SQL Server) as part of HCL\'s talent development program.',
+               'Selected through on-campus recruitment at United College of Engineering and Research, Prayagraj. Completed a 3-month intensive specialized training program in .NET Full-Stack development (ASP.NET Core, Angular, SQL Server).',
             tags: ['.NET', 'ASP.NET Core', 'Angular', 'SQL Server', 'Agile'],
-            isCurrent: true,
+            isCurrent: false,
          },
       ],
       education: [
