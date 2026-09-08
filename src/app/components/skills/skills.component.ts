@@ -19,7 +19,7 @@ import { SkillCategory } from '../../models/portfolio.model';
         <!-- Header -->
         <div class="text-center mb-16 reveal">
           <span class="section-pill">⚡ Capabilities</span>
-          <h2 class="section-title text-white">My <span class="gradient-text">Skills</span></h2>
+          <h2 class="section-title text-ink">My <span class="gradient-text">Skills</span></h2>
           <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full"></div>
           <p class="text-slate-400 mt-4 max-w-xl mx-auto">
             A curated set of technologies and concepts I leverage to build production-ready applications.
@@ -32,7 +32,7 @@ import { SkillCategory } from '../../models/portfolio.model';
             <div class="reveal glass rounded-2xl p-6 hover:border-primary-500/30 transition-all duration-300 group">
               <div class="flex items-center gap-3 mb-5">
                 <span class="text-2xl">{{ category.icon }}</span>
-                <h3 class="font-display font-semibold text-white">{{ category.name }}</h3>
+                <h3 class="font-display font-semibold text-ink">{{ category.name }}</h3>
               </div>
 
               <div class="space-y-3">

@@ -7,7 +7,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
    standalone: true,
    imports: [CommonModule],
    template: `
-    <footer class="relative bg-dark-900 border-t border-white/5 pt-12 pb-8">
+    <footer class="relative bg-dark-900 border-t border-[var(--glass-border)] pt-12 pb-8">
       <!-- Top glow -->
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-primary-500/60 to-transparent"></div>
 
@@ -17,7 +17,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
           <!-- Brand -->
           <div class="text-center md:text-left">
             <p class="font-display font-bold text-xl">
-              <span class="gradient-text">Ajad</span><span class="text-white">.dev</span>
+              <span class="gradient-text">Ajad</span><span class="text-ink">.dev</span>
             </p>
             <p class="text-slate-500 text-sm mt-1">Building the future, one commit at a time.</p>
           </div>

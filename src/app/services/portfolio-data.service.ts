@@ -45,7 +45,7 @@ export class PortfolioDataService {
          },
       ],
       stats: [
-         { label: 'Projects Built', value: '7+' },
+         { label: 'Projects Built', value: '5+' },
          { label: 'Certifications', value: '4' },
          { label: 'CGPA', value: '7.1' },
          { label: 'Tech Stacks', value: '3+' },
@@ -141,34 +141,20 @@ export class PortfolioDataService {
             githubUrl: 'https://github.com/Ajadshukla/hospitalmanagement',
          },
          {
-            title: 'AI Virtual Assistant',
-            subtitle: 'MERN Stack + Web Speech API',
+            title: 'Jarvis — AI Virtual Assistant',
+            subtitle: 'React + Express + MongoDB + Gemini',
             period: 'Jun 2024 – Nov 2024',
             description:
-               'Conversational AI assistant leveraging MERN stack and browser Web Speech API for real-time voice interaction. Deployed on Render with secure JWT + bcrypt authentication.',
-            techStack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Web Speech API', 'JWT'],
+               'A voice-controlled AI assistant — name it, give it a face, and talk to it. Combines the browser Web Speech API for voice I/O with Google Gemini for real conversational intelligence.',
+            techStack: ['React.js', 'Express.js', 'MongoDB', 'Gemini API', 'Web Speech API', 'JWT'],
             highlights: [
-               'Real-time voice recognition via Web Speech API',
+               'Real-time voice recognition and speech synthesis via the Web Speech API',
+               'Conversational responses powered by Google Gemini',
+               'Custom assistant identity — name and avatar are user-configurable',
                'Secure auth with JWT and bcrypt password hashing',
-               'Conversational AI response engine',
-               'Cloud-deployed on Render',
             ],
-            githubUrl: 'https://github.com/Ajadshukla',
-         },
-         {
-            title: 'Hotel Management System',
-            subtitle: 'Core Java',
-            period: 'Oct 2023 – Apr 2024',
-            description:
-               'Menu-driven hotel management system built with Core Java, demonstrating strong OOP principles with room booking, reservation handling, and customer record management.',
-            techStack: ['Core Java', 'OOP', 'File I/O', 'Collections'],
-            highlights: [
-               'Room booking and reservation management',
-               'Customer record CRUD operations',
-               'Menu-driven console interface',
-               'Demonstrates SOLID OOP design principles',
-            ],
-            githubUrl: 'https://github.com/Ajadshukla',
+            liveUrl: 'https://jarvis-ai-assistant-kohl.vercel.app/',
+            githubUrl: 'https://github.com/Ajadshukla/jarvis-ai-assistant',
          },
          {
             title: 'Space Blaster X',
@@ -184,21 +170,6 @@ export class PortfolioDataService {
             ],
             liveUrl: 'https://ajad-space-shooter-game.netlify.app/',
             githubUrl: 'https://github.com/Ajadshukla/space-shooter-game',
-         },
-         {
-            title: 'Live Code Editor',
-            subtitle: 'HTML, CSS & JavaScript Playground',
-            period: '2025',
-            description:
-               'In-browser code editor with a live preview for HTML, CSS, and JavaScript, including auto-run, localStorage persistence, and one-click HTML export.',
-            techStack: ['JavaScript', 'HTML', 'CSS'],
-            highlights: [
-               'Live iframe preview that updates as you type',
-               'Saves code to localStorage and restores it on reload',
-               'One-click export to a standalone downloadable HTML file',
-            ],
-            liveUrl: 'https://ajad-code-editor.netlify.app/',
-            githubUrl: 'https://github.com/Ajadshukla/live-code-editor',
          },
          {
             title: 'Personal Portfolio Website',

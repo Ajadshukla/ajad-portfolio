@@ -18,7 +18,7 @@ import { ScrollService } from '../../services/scroll.service';
         <!-- Section header -->
         <div class="text-center mb-16 reveal">
           <span class="section-pill">👤 Who I Am</span>
-          <h2 class="section-title text-white">About <span class="gradient-text">Me</span></h2>
+          <h2 class="section-title text-ink">About <span class="gradient-text">Me</span></h2>
           <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full"></div>
         </div>
 
@@ -54,7 +54,7 @@ import { ScrollService } from '../../services/scroll.service';
 
           <!-- Text side -->
           <div class="space-y-6 reveal-right">
-            <h3 class="font-display text-2xl md:text-3xl font-bold text-white">
+            <h3 class="font-display text-2xl md:text-3xl font-bold text-ink">
               Aspiring Full-Stack Developer<br><span class="gradient-text">with a flair for AI</span>
             </h3>
 
@@ -69,11 +69,11 @@ import { ScrollService } from '../../services/scroll.service';
             <div class="grid grid-cols-2 gap-4 py-2">
               <div class="glass rounded-xl p-4">
                 <p class="text-slate-500 text-xs mb-1">📍 Location</p>
-                <p class="text-white text-sm font-medium">Prayagraj, UP</p>
+                <p class="text-ink text-sm font-medium">Prayagraj, UP</p>
               </div>
               <div class="glass rounded-xl p-4">
                 <p class="text-slate-500 text-xs mb-1">🎓 Degree</p>
-                <p class="text-white text-sm font-medium">B.Tech CSE</p>
+                <p class="text-ink text-sm font-medium">B.Tech CSE</p>
               </div>
               <div class="glass rounded-xl p-4">
                 <p class="text-slate-500 text-xs mb-1">📧 Email</p>

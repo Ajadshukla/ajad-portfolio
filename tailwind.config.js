@@ -15,8 +15,9 @@ module.exports = {
           50:  '#eef2ff',
           100: '#e0e7ff',
           200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
+          // Theme-aware: bright indigo on dark surfaces, deep indigo for contrast on light ones.
+          300: 'rgb(var(--primary-300) / <alpha-value>)',
+          400: 'rgb(var(--primary-400) / <alpha-value>)',
           500: '#6366f1',
           600: '#4f46e5',
           700: '#4338ca',
@@ -24,16 +25,34 @@ module.exports = {
           900: '#312e81',
         },
         accent: {
-          400: '#34d399',
+          400: 'rgb(var(--accent-400) / <alpha-value>)',
           500: '#10b981',
           600: '#059669',
         },
+        // Theme-aware surface layers: near-black stack in dark mode, soft
+        // lavender-white stack in light mode. Every `bg-dark-*`/`border-dark-*`
+        // usage in the templates picks this up automatically.
         dark: {
-          900: '#020617',
-          800: '#0f172a',
-          700: '#1e293b',
-          600: '#334155',
+          900: 'rgb(var(--surface-900) / <alpha-value>)',
+          800: 'rgb(var(--surface-800) / <alpha-value>)',
+          700: 'rgb(var(--surface-700) / <alpha-value>)',
+          600: 'rgb(var(--surface-600) / <alpha-value>)',
           500: '#475569',
+        },
+        // The "strongest" foreground color on the page background — white in
+        // dark mode, near-black in light mode. Used for headings/body text
+        // that isn't sitting on a permanently-vivid gradient/button surface.
+        ink: 'rgb(var(--ink) / <alpha-value>)',
+        slate: {
+          // Theme-aware: these are the shades this design actually uses for
+          // text/borders on the page background. Untouched shades keep
+          // Tailwind's stock slate palette.
+          100: 'rgb(var(--slate-100) / <alpha-value>)',
+          300: 'rgb(var(--slate-300) / <alpha-value>)',
+          400: 'rgb(var(--slate-400) / <alpha-value>)',
+          500: 'rgb(var(--slate-500) / <alpha-value>)',
+          600: 'rgb(var(--slate-600) / <alpha-value>)',
+          700: 'rgb(var(--slate-700) / <alpha-value>)',
         },
       },
       animation: {

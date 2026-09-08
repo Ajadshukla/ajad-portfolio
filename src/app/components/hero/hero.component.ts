@@ -39,7 +39,7 @@ interface Particle {
 
             <!-- Name -->
             <h1 class="font-display font-bold leading-tight">
-              <span class="text-5xl md:text-6xl lg:text-7xl text-white block">Hi, I'm</span>
+              <span class="text-5xl md:text-6xl lg:text-7xl text-ink block">Hi, I'm</span>
               <span class="text-5xl md:text-6xl lg:text-7xl gradient-text text-glow block">Ajad Shukla</span>
             </h1>
 
@@ -87,7 +87,7 @@ interface Particle {
                   href="ajad resumee.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="w-9 h-9 rounded-lg glass flex items-center justify-center text-slate-400 hover:text-accent-400 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-0.5 border border-white/10"
+                  class="w-9 h-9 rounded-lg glass flex items-center justify-center text-slate-400 hover:text-accent-400 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-0.5"
                   title="Preview Resume">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -124,7 +124,7 @@ interface Particle {
               <!-- Glow -->
               <div class="absolute inset-4 rounded-full bg-primary-600/20 blur-xl"></div>
               <!-- Photo -->
-              <div class="absolute inset-3 rounded-full overflow-hidden border-2 border-white/10">
+              <div class="absolute inset-3 rounded-full overflow-hidden border-2 border-[var(--glass-border)]">
                 <img
                   src="ajad.png.png"
                   alt="Ajad Shukla"
@@ -142,7 +142,7 @@ interface Particle {
               </div>
               <div class="absolute -bottom-4 -left-4 glass rounded-xl px-3 py-2 text-xs font-semibold text-primary-300 border border-primary-500/30"
                    style="animation: bounce 2s ease infinite 1s;">
-                🚀 7+ Projects
+                🚀 5+ Projects
               </div>
             </div>
           </div>

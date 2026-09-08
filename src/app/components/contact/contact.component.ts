@@ -19,7 +19,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
         <!-- Header -->
         <div class="text-center mb-16 reveal">
           <span class="section-pill">📬 Let's Talk</span>
-          <h2 class="section-title text-white">Get In <span class="gradient-text">Touch</span></h2>
+          <h2 class="section-title text-ink">Get In <span class="gradient-text">Touch</span></h2>
           <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full"></div>
           <p class="text-slate-400 mt-4 max-w-xl mx-auto">
             Have a project idea, want to collaborate, or just say hi? My inbox is always open.
@@ -33,7 +33,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
               <div class="w-12 h-12 rounded-xl bg-primary-600/20 border border-primary-500/30 flex items-center justify-center text-xl flex-shrink-0">📧</div>
               <div>
                 <p class="text-slate-500 text-sm mb-1">Email</p>
-                <a href="mailto:ajadshukla718@gmail.com" class="text-white font-medium hover:text-primary-400 transition-colors">
+                <a href="mailto:ajadshukla718@gmail.com" class="text-ink font-medium hover:text-primary-400 transition-colors">
                   ajadshukla718&#64;gmail.com
                 </a>
               </div>
@@ -43,7 +43,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
               <div class="w-12 h-12 rounded-xl bg-primary-600/20 border border-primary-500/30 flex items-center justify-center text-xl flex-shrink-0">📱</div>
               <div>
                 <p class="text-slate-500 text-sm mb-1">Phone</p>
-                <a href="tel:+919682860020" class="text-white font-medium hover:text-primary-400 transition-colors">
+                <a href="tel:+919682860020" class="text-ink font-medium hover:text-primary-400 transition-colors">
                   +91 96828 60020
                 </a>
               </div>
@@ -53,7 +53,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
               <div class="w-12 h-12 rounded-xl bg-primary-600/20 border border-primary-500/30 flex items-center justify-center text-xl flex-shrink-0">📍</div>
               <div>
                 <p class="text-slate-500 text-sm mb-1">Location</p>
-                <p class="text-white font-medium">Prayagraj, Uttar Pradesh, India</p>
+                <p class="text-ink font-medium">Prayagraj, Uttar Pradesh, India</p>
               </div>
             </div>
 
@@ -139,8 +139,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
                       placeholder="Your Message"
                       rows="5"
                       class="floating-input resize-none"
-                      [class.border-red-500]="isInvalid('message')">
-                    </textarea>
+                      [class.border-red-500]="isInvalid('message')"></textarea>
                     <label for="message" class="floating-label">Your Message</label>
                     @if (isInvalid('message')) {
                       <p class="text-red-400 text-xs mt-1 ml-1">
@@ -175,7 +174,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
                   <div class="w-20 h-20 rounded-full bg-accent-500/20 border border-accent-500/40 flex items-center justify-center text-4xl mx-auto">
                     ✅
                   </div>
-                  <h3 class="font-display font-bold text-2xl text-white">Message Sent!</h3>
+                  <h3 class="font-display font-bold text-2xl text-ink">Message Sent!</h3>
                   <p class="text-slate-400">Thanks for reaching out. I'll get back to you soon.</p>
                   <button (click)="reset()" class="btn-outline mt-4">Send Another</button>
                 </div>
